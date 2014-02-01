@@ -1,0 +1,63 @@
+<div id="left_section">
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+{if $banner_list}
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td class="tblHead" width="100">Banner Image</td>
+    <td class="tblHead">Comments</td>
+    <td class="tblHead" width="50">&nbsp;</td>
+  </tr>
+{foreach from=$banner_list item=banner}  
+  <tr id="row_{$banner->banner_id}">
+    <td class="tblList"><img src="../banners/{$banner->banner_image}" alt="{$banner->banner_image}" title="{$banner->banner_image}" height="30" /></td>
+    <td class="tblList">{$banner->banner_comment|truncate:100}</td>
+    <td class="tblList">
+    	<a href="javascript:void(0)" onclick="banner_edit(this.id)" id="{$banner->banner_id}"><img src="images/ico_edit.png" alt="Edit Banner" width="16" height="16" border="0" /></a>
+        <a href="javascript:void(0)" onclick="banner_delete(this.id)" id="{$banner->banner_id}"><img src="images/ico_delte.png" alt="Delete Banner" width="16" height="16" border="0" /></a>
+    </td>
+  </tr>
+{/foreach}  
+</table>
+{else}
+<p>No Banners found.</p>
+{/if}
+
+</div>
+<div id="right_section">
+<fieldset>
+<legend>Add/Update Banners</legend>
+<form method="post" action="banner_ajax.php?opt=1" name="banner_form" id="banner_form" enctype="multipart/form-data">
+<input type="hidden" name="mm_action" id="mm_action" value="doBanner" />
+<input type="hidden" name="ban_id" id="ban_id" value="" />
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><label>Upload Banner Image</label></td>
+  </tr>
+  <tr>
+    <td><input name="ban_img" id="ban_img" type="file" value="" /></td>
+  </tr>
+  <tr>
+    <td>
+		<label>Add Comments</label><br />
+		<span class="frmInstruction">HTML tags can be used to provide rich appearnce.</span>
+    </td>
+  </tr>
+  <tr>
+    <td><textarea name="comments" id="comments" cols="" rows="7" style="width:250px;"></textarea></td>
+  </tr>
+  <tr>
+    <td><input type="submit" name="button" id="button" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+<hr size="1" noshade="noshade"  />
+<div><label>Switch Banner Rotaion</label></div>
+<div>
+	<input name="banners_opt" id="banners_opt" type="radio" value="1" onclick="set_ban_rotation(this.value)" {$ban_on} />ON 
+    <input name="banners_opt" id="banners_opt" type="radio" value="0" onclick="set_ban_rotation(this.value)" {$ban_off} />Off
+ </div>
+<div class="frmInstruction">ON: banners will change automatically after a fix interval. OFF: banners will only change on page refresh.</div>
+</fieldset>
+</div>

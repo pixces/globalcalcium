@@ -1,0 +1,32 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+    	var size = $("#data > div.productItem").size();
+		$("#data > div.productItem").each(function(index){
+  			if (index >= size/2){
+  				$(this).appendTo("#Column2");
+  			}
+ 		});
+  });
+</script>
+
+<div id="contentWrapper">
+	<h1 class="bg_general "><?php echo ucwords(strtolower($title)); ?></h1>
+    	<!-- first column //-->
+    	<div id="data" class="productList"style="width:320px; float:left; text-align:left; margin-right: 25px;">
+            <?php foreach($productList as $product){?>
+            <div class="productItem" style="margin-bottom:15px;">
+                <div class="product_main_bg" style="background-color:#86CFF0; padding:5px; margin-bottom:5px;">
+                    <a href="<?php echo $product['url']; ?>">
+                        <span class="productMain" style="font-size:1.1em; font-weight:bold; text-decoration:none; display:block"><?php echo $product['name']; ?></span>
+                    </a>
+                 </div>
+                
+                <?php if ($product['sub']){ foreach($product['sub'] as $item) { ?> 
+                <div class="product_sub" style="margin-bottom:3px;"><a href="<?php echo $item['url;']; ?>"><span class="productSub"><?php echo $item['name']; ?></span></a></div>
+                <?php } } ?>
+            </div>
+			<?php } ?>
+        </div>
+		<!-- second column //-->
+    	<div class="productList" id="Column2" style="width:320px; float:left; text-align:left"></div><br style="clear:both" />
+	</div>

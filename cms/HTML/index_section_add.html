@@ -1,0 +1,40 @@
+
+<ul class="formDetail">
+<li>Use the form below to add all the Index Page Content.</li>
+</ul>
+
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+<form id="indexContentPage" name="indexContentPage" method="post" action="">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="indexId" value="{$contentDet->CMS_COL_CONTENT_ID}"
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td width="150" valign="top"><label>Section Name:</label></td>
+    <td valign="top"><div align="left">Section Title:</div></td>
+    </tr>
+	
+  <tr>
+    <td width="150" valign="top"><label>Section Content:</label></td>
+    <td valign="top"><div align="left"><textarea name="sectionContent" id="sectionContent" /></textarea>  </div></td>
+    </tr>
+  <tr>
+    <td width="150" valign="top"><label>Image Link:</label></td>
+	<td valign="top"><input type="text" name="imageLink" id="imageLink" /> </td>
+    </tr>
+  <tr>
+    <td width="150" valign="top"><label>URL to link with:</label></td>
+    <td valign="top"><div align="left"><input type="text" name="linkUrl" id="linkUrl" />
+    </div></td>
+    </tr>
+   <tr>
+     <td width="150" valign="top"><div align="left"></div></td>
+     <td valign="top">
+       <div align="left">
+         <input type="submit" name="submit" id="submit" value="{$formName} Content"  />    <!-- onClick="return validateForm();" -->  
+       </div></td>
+    </tr>
+</table>
+</form>
+

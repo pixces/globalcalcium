@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+#new_menu {
+	width: 960px;
+	height: 35px;
+	margin: 0 auto;
+	/* background: url(images/img03.gif) repeat-x left top; */
+	background: url("images/menu_decoration.gif") no-repeat scroll center bottom transparent;
+	margin-bottom:10px;
+}
+
+#dropmenu, #dropmenu ul {
+	margin:0; 
+	padding:0; 
+	list-style-type:none; 
+	list-style-position:outside; 
+	position:relative; 
+	line-height:1.5em; 
+	margin: 3px 0 0 10px;
+	float:right;	
+	z-index:300; 
+	background:#fff; 
+	font-weight:bold;
+}
+
+#dropmenu a {
+	display: block;
+	margin-right: 3px;
+	padding: 5px 20px 5px 20px;
+	text-decoration: none;
+	/* text-transform: uppercase; */
+	font-size: 12px;
+	/* font-weight: bold; */
+	color: #2C2728;	 
+	background:#fff;
+}
+
+#dropmenu a:hover{
+	/*
+	background: #9dcd17;
+	color: #110404;
+	*/
+	color: #44a5d4;	
+}
+
+#dropmenu li {
+	float:left; 
+	position:relative;
+}
+#dropmenu ul {
+	position:absolute; 
+	display:none; 
+	width:12em; 
+	top:1.9em; 
+	left:-5px;
+}
+#dropmenu ul a {
+	border-left:1px solid #EFEFEF;
+}
+#dropmenu li ul {
+	border-top:1px solid #EFEFEF; 
+	width:15.5em;
+}
+#dropmenu li ul li a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #EFEFEF;
+    border-left: 1px solid #EFEFEF;
+    border-right: 1px solid #EFEFEF;
+    float: left;
+    height: auto;
+    width: 12em;
+}
+
+#dropmenu ul ul {
+	top:auto;
+}
+#dropmenu li ul ul {
+	left:-16.2em; 
+	margin:0px 0 0 10px;
+}
+#dropmenu li:hover ul ul, #dropmenu li:hover ul ul ul, #dropmenu li:hover ul ul ul ul {
+	display:none;
+}
+#dropmenu li:hover ul, #dropmenu li li:hover ul, #dropmenu li li li:hover ul, #dropmenu li li li li:hover ul {
+	display:block;
+}

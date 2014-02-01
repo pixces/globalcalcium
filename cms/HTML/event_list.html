@@ -1,0 +1,34 @@
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="list_nav">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="left">Found: <b>{$count} Event(s)</b></div></td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+</div>
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="tblHead"><div align="left">Event Title</div></td>
+    <td class="tblHead" width="200"><div align="left">Location</div></td>
+	<td class="tblHead" width="150"><div align="left">Event Date</div></td>
+	<td class="tblHead" width="50"><div align="left"></div></td>
+  </tr>
+  <tr>
+    {foreach from=$list item="event"}
+	<td class="tblList" align="left"><b>{$event->news_title}</b></td>
+	<td class="tblList" align="left">{$event->news_location}</td>
+	<td class="tblList" align="left">{$event->news_date}</td>
+	<td class="tblList" align="left">
+        <a href="?type=edit&id={$event->id}" id="{$event->id}">
+        	<img id="{$event->id}" src="images/ico_edit.png" alt="edit" title="Edit Event" border="0"/>
+        </a>
+        <a href="?type=delete&id={$event->id}" id="{$event->id}" onClick="return deleteproduct();">
+        	<img id="{$event->id}" src="images/ico_delete.png" alt="delete" title="Delete Event" border="0" />
+        </a>
+     </td>
+  </tr>
+  	{/foreach}
+</table>
+<p class="button" style="float:right; margin-top:20px;"><a href="?type=add">Add New Event</a></p>

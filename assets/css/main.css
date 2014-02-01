@@ -1,0 +1,515 @@
+@charset "utf-8";
+body  {
+	font: 11px Arial, Verdana, Helvetica, sans-serif;
+	background: #e8e8e8;
+	margin: 0; 
+	padding: 0;
+	text-align: center; 
+	color: #5f5557;
+}
+
+.container { 
+	width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+	height:auto;
+} 
+
+.clearfloat { 
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+
+/* header wrapper, logo, etc */
+#headerWrapper{
+	background:url(../images/header-bg-1x241.jpg) bottom left repeat-x;
+	height: 195px;
+	margin: 0 auto;
+	padding:0;
+	width: 100%;
+}
+#menuBar{
+	
+}
+
+/*
+#menuBar{
+ 	text-align:right; 
+	height:45px; 
+	line-height:45px; 
+	padding-top:10px;
+}
+
+#menuBar span{
+	text-align:center;
+	padding:0 15px;
+}
+
+#menuBar span a{
+	font-size: 14px;
+	text-decoration:none;
+	color: #0084c5;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}	
+
+#menuBar span a:hover{
+	color: #777777;
+}
+*/
+
+#bodyWrapper{
+	background: #e8e8e8; 
+	margin: 25px 0;
+	height: auto;
+}
+
+#sidebar {
+	float: left; /* since this element is floated, a width must be given */
+	width: 265px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	padding: 0px 10px 15px 0px;
+}
+#mainContent { 
+	margin: 0 0 0 275px; /* the left margin on this div element creates the column down the left side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding-left: 15px;
+} 
+
+#contentWrapper{
+	min-height: 554px;
+	border: 1px solid #d7d3d3;
+	margin: 0 10px 0 0;
+	background:#FFFFFF;
+	padding:15px;
+}
+
+#contentWrapper h1{
+	padding:0;
+	margin:0;
+	font-family:"Trebuchet MS", Verdana, Arial;
+	font-size: 18px;
+	font-weight:normal;
+	margin-bottom: 15px;
+	padding: 5px 0px 5px 10px;
+	color: #FFFFFF;
+}
+
+.bg_general{
+	background:url(../images/drk-grey-bg.gif) repeat-x top left;
+}
+
+#contentWrapper .img{
+ padding-right:15px;
+ padding-bottom:10px;
+}
+
+#contentWrapper p{
+	padding: 0 0 10px 0;
+	margin:0;
+	line-height: 1.70em;
+}
+
+#contentWrapper ul{
+	line-height: 1.5em;
+	list-style:outside;
+	list-style-image:url(../images/bullet-arrow.gif);
+	margin-top: 5px;
+}
+
+#contentWrapper li{
+	margin-bottom: 10px;
+}
+
+#contentWrapper .question{
+	font-weight: bold;
+	padding-left:5px;
+}
+#contentWrapper .answer{
+	padding-left:15px;
+	padding-bottom: 5px;
+}
+
+.productbox{
+	width: 130px;
+	height: 530px;
+	border: 1px solid #d7d3d3;
+	margin: 0 10px 0 0;
+	background:#FFFFFF;
+	float: left;
+}
+
+.productbox #prCatTitle{
+	margin-top:15px;
+	line-height:27px;
+	color: #FFF;
+	padding-left:10px;
+	font-size:15px;
+	font-family:"Trebuchet MS", Verdana, Arial;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+.productbox #prTitle{
+	text-align:center;
+	font-family:"Trebuchet MS", Verdana, Arial;
+	font-weight:bold;
+	font-size:10pt;
+	text-decoration:none;
+}
+
+.productbox #prTitle a{
+	text-decoration: none;
+}
+
+.productbox #prImg{
+	text-align:center;
+	margin-bottom:5px;
+}
+
+.productbox p{
+	font-family:"Trebuchet MS", Verdana, Arial;
+	margin: 8px auto;
+	width:120px;
+	text-align: center;
+	line-height:1.5em;
+	font-size:12px;
+}
+
+.productbox .tagline{
+	font-weight:bold;
+	font-size: 13px;
+	font-family:"Trebuchet MS", Verdana, Arial;
+	font-style: italic;
+	margin-top: 15px;
+}
+
+.blue, .green, .red, .orange, .yellow{
+	width: 120px;
+	height: 27px;
+}
+.blue,.bg_blue{
+	background:url(../images/bg-blue.gif) top left no-repeat;
+}
+.green,.bg_green{
+	background:url(../images/bg-green.gif) top left no-repeat;
+}
+.red,.bg_red{
+	background:url(../images/bg-red.gif) top left no-repeat;
+}
+.orange,.bg_orange{
+	background:url(../images/bg-orange.gif) top left no-repeat;
+}
+.yellow,.bg_yellow{
+	background:url(../images/bg-yellow.gif) top left no-repeat;
+}
+
+.bg_blue{
+	background:url(../images/bg-blue.gif) top left repeat-x;
+}
+.bg_green{
+	background:url(../images/bg-green.gif) top left repeat-x;
+}
+.bg_red{
+	background:url(../images/bg-red.gif) top left repeat-x;
+}
+.bg_orange{
+	background:url(../images/bg-orange.gif) top left repeat-x;
+}
+.bg_yellow{
+	background:url(../images/bg-yellow.gif) top left repeat-x;
+}
+
+
+.txt-blue{
+	color: #24afdc;
+}
+.txt-green{
+	color: #6cbe21;
+}
+.txt-yellow{
+	color: #ecbd07;
+}
+.txt-orange{
+	color: #ff4200;
+}
+.txt-red{
+	color: #ed1902;
+}
+
+
+.link-additional{
+	background:url(../images/drk-grey-bg.gif) top left repeat-y; 
+	padding:5px; 
+	-moz-border-radius:5px; 
+	color:#FFF; 
+	margin-bottom:10px; 
+	font-size:1.2em; 
+	font-weight:bold;
+}
+
+
+
+
+
+
+
+#sidebar .box{
+	width: 262px;
+	margin-bottom:10px;
+}
+
+#sidebar h2{
+	background: url(../images/drk-grey-bg.gif) center left no-repeat;
+	margin:0;
+	padding:0;
+	margin-top: 15px;
+	margin-bottom:5px;
+	padding: 5px 10px 5px 15px;
+	color: #FFF;
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-align:left;
+}
+
+.box-top-260{
+	background:url(../images/gre-box_01.png) top left no-repeat;
+	width:262px;
+	height:10px;
+	display:block;
+}
+
+.box-body-260{
+	background:url(../images/gre-box_02.png) top left repeat-y;
+	width:262px;
+	height:auto;
+}
+
+.box-bottom-260{
+	background:url(../images/gre-box_03.png) bottom left no-repeat;
+	width:262px;
+	height:14px;
+}
+
+.box-text{
+ 	width:230px; 
+	margin: 0px auto; 
+	text-align:left;
+	line-height: 1.75em;
+}
+
+.box-text .title{
+	font-size: 16px;
+}
+
+.ticker{
+	height: 133px;
+}
+
+/* footer and footer links */
+
+#footerWrapper{
+	background: url(../images/footer-bg-1x264.jpg) top left repeat-x;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	height: 265px;
+	color: #979393;
+}
+
+#footerWrapper div div{
+	float: left;
+	padding-right: 15px;
+	margin-right: 15px;
+	margin-top: 10px;
+}
+
+#footerWrapper div div h2{
+	padding: 10px 0;
+	margin: 0;
+	font-size: 13px;
+	font-weight:normal;
+	text-transform: uppercase;
+}
+
+#footerWrapper ul{
+	padding: 0;
+	margin: 0;
+	line-height: 27px;
+	list-style:outside;
+	padding-left: 15px;
+	width: 290px;
+	list-style-image:url(../images/bullet-arrow.gif);
+}	
+
+#footerWrapper li{
+	border-bottom: 1px dotted;
+}
+
+#footerWrapper li a{
+	text-decoration: none;
+	color: #979393;
+	font-size:12px;
+}
+
+#footerWrapper div .divExtraElements{
+	padding:0;
+	margin: 35px 0 0 0;
+}
+
+#footerWrapper #search{
+	background:url(../images/search-box.png) center left no-repeat;
+	height:50px;
+	width:296px;
+	padding:10px;
+	margin-top:15px;
+}
+
+#footerWrapper #search .label{
+	color: #494545;
+	margin-right:10px;
+	font-size:13px;
+	font-style:italic;
+}
+
+#footerWrappe*r #search .text{
+	width: 200px;
+	background: none;
+	border: none;
+}
+
+#footerWrapper #search .search-btn{
+	margin-top: 10px;
+	line-height: 50px;
+}
+
+.certi_img{
+	border: 1px solid #979393;
+}
+
+.certi_label{
+	background: url(../images/footer-bg-1x264.jpg) top left repeat-x;
+	color: #FFF;
+	padding:5px;
+}
+
+.vetical_side_button{
+	margin-bottom: 10px;
+	width:160px;
+	line-height:27px;
+	text-align:center;
+	-moz-border-radius:6px;
+	font-size:10pt;
+	font-weight:bold;
+}
+
+/* news page */
+#newsTitle{
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size:16pt;
+	color: #016C7F;
+	margin-bottom:15px;
+	font-weight:bold;
+	font-style:italic;
+}
+
+/* product details page */
+.products_bg{
+	background:url(../images/bg_products.gif) top left repeat-x;
+}
+
+#products{
+	font-size: 12px;
+	line-height: 1.5em;
+}
+
+#products .specification{
+	margin-bottom:15px;
+}
+
+#products .tests{
+	margin-bottom:15px;
+	margin-top:10px;
+}
+
+th,td{
+	padding: 5px 15px 5px 5px;
+
+}
+th{
+	background:#74BF3B;
+	color:#FFFFFF;
+}
+
+td{
+	border-bottom: 1px dotted #9CB08D;
+}
+
+
+#productGeneral p{
+	float:left;
+	width: 300px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	border-bottom:1px dotted #A1A1A1;
+	margin-right:25px;
+}
+
+#productGeneral p span.lable{
+	padding-right:10px;
+}
+
+#productGeneral p span.value{
+	font-weight:bold;
+	color: #262223;
+}
+
+/* news and event page */
+	/* list */
+	div.event{
+		border-bottom: 1px dotted #A1A1A1;
+		margin-bottom:10px;
+		padding-bottom:5px;
+		margin-left:50px;
+	}
+	.logo{
+		max-width: 150px;
+		border: none;
+	}
+	.title{
+		font-size: 1.2em;
+		font-weight:bold;
+	}
+	
+	.title a{
+		color:#1D9CE5;
+		text-decoration:none;	
+	}
+	.title a:hover{
+		color:#478F11;
+		text-decoration:underline;	
+	}	
+	
+	div.event div{
+		margin-bottom: 5px;
+	}
+
+	/* details */
+	.event_title{
+		font-size: 24px;
+		font-family:"Trebuchet MS", Verdana, Arial;
+		color: #1D9CE5;
+	}
+	.event_photo img{
+		max-width: 320px;
+		margin-right:10px;
+		float:left;
+		border-bottom:1px solid;
+		padding-bottom:10px;
+		margin-bottom:10px;
+	}
+	.event_basic{
+		font-size: 12px;
+		line-height:25px;
+		margin-bottom:15px;
+	}

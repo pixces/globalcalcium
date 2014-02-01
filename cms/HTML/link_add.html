@@ -1,0 +1,21 @@
+
+<p class="formDetail">Use the form below to add/edit link details. All fields are mandatory to be filled.</p>
+<div id="form">
+<form name="link_form" id="link_form" method="post" action="">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="linkId" value="{$linkdetail->CMS_COL_CAT_ID}" />
+  <table cellpadding="2" cellspacing="0">
+    <tr>
+      <td valign="top"><label>Link Name:</label></td>	  
+      <td valign="top"><input type="text" name="linkName" id="linkName" value="{$linkdetail->CMS_COL_CAT_NAME}"/></td>   
+      <td valign="top"><label>Parent Link :</label></td>
+      <td valign="top"><select name="parentLink">
+	  		<option value="0">-- Primary --</option>
+			{html_options options=$parentLink selected=$linkdetail->CMS_COL_CAT_PARENT}
+		</select>      </td>
+      <td valign="top"></td>
+      <td valign="top"><input type="submit" name="{$buttonName}" value="{$buttonName}" /></td> <!--onClick="return validateForm();" -->  
+    </tr>
+  </table>
+</form>
+</div>

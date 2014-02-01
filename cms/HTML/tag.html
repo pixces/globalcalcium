@@ -1,0 +1,74 @@
+<ul class="formDetail">
+<li>Use the form below to add/modify the tags for the content &quot;{$chap_title|upper}&quot;.</li> 
+<li>You can use any of the giving two methods to assign/modify tags.</li>
+</ul>
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div style="float:left; width:550px">
+<fieldset>
+<legend>Method-1</legend>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="left">
+      <ul>
+        <li>Given below is the list of all the tags avilable in the system.</li>
+        <li>Select the tag name and click on the button pointing to right to assign selected tag to the content.</li>
+        <li>To remove the tag name slect it from the select box on the right and press the key point to the left.</li>
+      </ul>
+    </div></td>
+  </tr>
+  <tr>
+    <td>
+	  <form method="post" action="" id="tag_m_1" name="tag_m_1">
+      <input type="hidden" name="mm_action" id="mm_action" value="method_1" />    
+      <table width="0%" border="0" align="center" cellpadding="2" cellspacing="2">
+  <tr>
+    <td valign="middle">
+    	<select multiple="multiple" name="oldSelect" id="oldSelect" style="width:200px; height:150px;">
+        {$oldList}
+    	</select>    </td>
+    <td valign="middle">
+    	<input type="button" name="addTg" id="addTg" value="&raquo;" /><br />
+        <input type="button" name="remTg" id="remTg" value="&laquo;" />        </td>
+    <td valign="middle">
+    	<select multiple="multiple" name="newSelect[]" id="newSelect" size="10" style="width:200px; height:150px;">
+    	{$newList}
+        </select></td>
+    </tr>
+  <tr>
+    <td valign="middle">&nbsp;</td>
+    <td valign="middle">&nbsp;</td>
+    <td valign="middle"><div align="right">
+      <input type="submit" name="btnSubmit" id="btnSubmit" value="Add Tags" />
+    </div></td>
+    </tr>
+</table>
+	  </form>
+
+    </td>
+  </tr>
+  <tr></tr>
+</table>
+</fieldset>
+</div>
+<div style="float:left; width:300px">
+<fieldset>
+<legend>Method-2</legend>
+<table width="100%" border="0" cellpadding="2" cellspacing="2">
+  <tr>
+    <td><div align="left">Or, Enter a comma seperated list of tags in the text box below to add tags to the content. Remember to use only a 'Comma' seperate list only.</div></td>
+  </tr>
+  <tr>
+    <td><div align="left">
+      <form method="post" action="" id="tag_m_2" name="tag_m_2">
+      <input type="hidden" name="mm_action" id="mm_action" value="method_2" />
+      <input type="text" name="taglist" id="taglist" size="30" value="{$oldTag}" />
+      <input type="submit" name="submit" id="submit" value="Add Tags" />
+      </form>
+    </div></td>
+  </tr>
+</table>
+</fieldset>
+</div>
+<div style="clear:both"></div>
+

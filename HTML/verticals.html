@@ -1,0 +1,26 @@
+<div id="contentWrapper">
+	<div style="float:left; width:470px; margin-right:10px">
+	<h1 class="bg_general <?php echo $color_class; ?>"><?php echo $title; ?></h1>
+	<div style="margin-bottom:15px;"><img src="assets/images/img_vertical_<?php echo $sef; ?>.jpg" height="230" width="469" /></div>
+    <div style="text-align:justify;"><?php echo $page_content; ?></div>
+
+    <?php if ($productList) { ?>
+    <div id="list">
+        <ul>
+            <?php if ($productList) {  foreach($productList as $list) { ?>
+            <li><a href="<?php echo $list['url']; ?>"><?php echo $list['name']; ?></a></li>
+            <?php } } ?>
+        </ul>
+    </div>
+    <?php } ?>
+
+    </div>
+    <div style="float:right">
+    	<?php foreach($verticalList as $list){ ?>
+        	<div class="vetical_side_button bg_<?php echo $list->bg_link_color; ?>">
+            	<a href="verticals/<?php echo $list->sef_name; ?>" style="text-decoration:none; color:#FFF"><?php echo $list->name; ?></a>
+            </div>
+        <?php } ?>
+    </div>
+    <br style="clear:both" />
+</div>

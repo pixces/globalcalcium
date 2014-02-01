@@ -1,0 +1,49 @@
+<div id="contentWrapper">
+	<h1 class="bg_general products_bg"><?php echo $title; ?></h1>
+	<div id="products">
+    <?php if ($prod_specification) { ?>
+        <div class="specification">
+            <table border="0" cellspacing="0" cellpadding="5">
+                <tr bgcolor="#d4e4ba"><td>Product Name:</td><td><b><?php echo $productDet['name']; ?></b></td></tr>
+                <tr bgcolor="#d4e4ba"><td>Product Formula:</td><td bgcolor="#e2f0cd"><b><?php echo $productDet['formula']; ?></b></td></tr>
+                <tr bgcolor="#d4e4ba"><td>Molecular Weight:</td><td bgcolor="#ecf4e0"><?php echo $productDet['weight']; ?></td></tr>
+                <tr bgcolor="#d4e4ba"><td>CAS Number:</td><td bgcolor="#e2f0cd"><?php echo $productDet['cas_number']; ?></td></tr>
+            </table>
+        </div>
+    <?php } if ($prod_tests){ ?>
+        <div class="tests">
+        	<table border="0" cellspacing="0" cellpadding="2" width="100%">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col" width="150">Tests</th>
+                <th scope="col">Specifications</th>
+                <th scope="col" width="75">Reference</th>
+              </tr>
+              <?php 
+              $c=0;
+              foreach($productDet['tests'] as $test) {  
+              ?>
+              <tr>
+                <td valign="top"><?php echo ++$c; ?></td>
+                <td valign="top"><?php echo $test['product_test']; ?></td>
+                <td valign="top"><?php echo $test['test_specification']; ?></td>
+                <td valign="top"><?php echo $test['test_reference']; ?></td>
+              </tr>
+              <?php } ?>                                                                                   
+            </table>
+        </div>
+    <?php } if ($prod_details) { ?>
+        <div id="details">
+        	<p><?php echo $productDet['details']; ?></p>
+        </div>
+    <?php } if ($prod_list) { ?>
+        <div id="list">
+        	<ul>
+            	<?php if ($productList) {  foreach($productList as $list) { ?>
+            	<li><a href="<?php echo $list['url']; ?>"><?php echo $list['name']; ?></a></li>
+                <?php } } ?>
+            </ul>
+        </div>
+    <?php } ?>
+    </div>
+</div>    

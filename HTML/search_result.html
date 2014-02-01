@@ -1,0 +1,50 @@
+<style>
+/* search result page */
+#search-result{
+	font-size: 12px;
+	line-height:1.5em;
+}
+
+#search-result .note{
+	font-weight: bold;
+	margin-bottom : 15px;
+	font-size:10pt;
+}
+
+#search-result .count{
+	margin-bottom : 15px;
+	margin-left:50px;
+}
+
+#search-result .item{
+	padding-bottom:5px;
+	margin-bottom:5px;
+	border-bottom: 1px dotted #A1A1A1;
+	margin-left:50px;
+}
+
+#search-result .item span a{
+	color:#17739E;
+	text-decoration:none;
+}
+
+#search-result .item span a:hover{
+	color: #2B7F1F;
+}
+
+</style>
+
+<div id="contentWrapper">
+	<h1 class="bg_general">Product Search</h1>
+    <div id="search-result">
+    <div class="note">Note: Search is based on Exact/Partial lookup of Product Names</div>
+    <?php if ($productList){ ?>
+    <div class="count">Found <b><?php echo $matchCount; ?></b> Products matching <b><?php echo strtoupper($term); ?></b></div>
+    <?php foreach($productList as $product) { ?>
+    <div class="item"><span><a href="<?php echo $product['url']; ?>"><?php echo $product['name']; ?></a></span></div>
+    <?php } ?>
+    <?php } else { ?>
+    <div class="search_error">No match found for <?php echo strtoupper($term); ?></div>
+    <?php } ?>
+    </div>
+</div>

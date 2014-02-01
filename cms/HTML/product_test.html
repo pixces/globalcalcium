@@ -1,0 +1,79 @@
+<ul class="formDetail">
+	<li>Add Test specifications in the form below</li>
+</ul>
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+<form id="addTests" name="addTests" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="productId" value="{$productId}" />
+<input type="hidden" name="test_count" id="test_count" value="{$product_test_count}" />
+<table border="0" cellspacing="0" cellpadding="5" id="productTests">
+    <tr>
+        <th valign="top" scope="col">
+        	<div align="left">Tests</div>
+        </th>
+        <th valign="top" scope="col">
+        	<div align="left">Specifications</div>
+       	</th>
+        <th valign="top" scope="col">
+        	<div align="left">Reference</div>
+        </th>
+        <th valign="top" scope="col">
+        	<div align="left"></div>
+        </th>
+    </tr>
+    <tr id="row_test_{$productTestDet.0.id}">
+        <td valign="top">
+        	<div align="left">
+            	<textarea name="product_test[]" id="product_test" cols="29" >{if $productTestDet.0}{$productTestDet.0.product_test}{/if}</textarea>
+            </div>
+        </td>
+        <td valign="top" align="left">
+        	<div align="left">
+            	<textarea name="product_specification[]" id="product_specification" cols="25" >{if $productTestDet.0}{$productTestDet.0.test_specification}{/if}</textarea>
+            </div>
+        </td>
+        <td valign="top" align="left">
+        	<div align="left">
+            	<textarea name="product_reference[]" id="product_reference" cols="25" >{if $productTestDet.0}{$productTestDet.0.test_reference}{/if}</textarea>
+        	</div>
+        </td>
+        <td align="left">
+        	<a href="javascript:add_more_tests();"><img src="images/ico_add_doc.png" width="16" height="16" border="0" /></a>
+        </td>
+    </tr>
+	{if $product_test_count > 1}
+		{section name=tests loop=$productTestDet start=1 step=1}
+    <tr id="row_test_{$productTestDet[tests].id}">
+        <td valign="top">
+	        <div align="left">
+            	<textarea name="product_test[]" id="product_test" cols="29" >{$productTestDet[tests].product_test}</textarea>
+            </div>
+        </td>
+        <td valign="top" align="left">
+	        <div align="left">
+            	<textarea name="product_specification[]" id="product_specification" cols="25" >{$productTestDet[tests].test_specification}</textarea>
+            </div>
+        </td>
+        <td valign="top" align="left">
+    	    <div align="left">
+            	<textarea name="product_reference[]" id="product_reference" cols="25" >{$productTestDet[tests].test_reference}</textarea>
+	        </div>
+        </td>
+        <td align="left">
+            <a href="javascript:add_more_tests();"><img src="images/ico_add_doc.png" width="16" height="16" border="0" /></a>
+            <a href="javascript:remove_tests({$productTestDet[tests].id});"><img src="images/ico_remove_doc.png" width="16" height="16" border="0" /></a>
+        </td>
+    </tr>
+		{/section}
+	{/if}
+    <tr>
+        <td valign="top" align="left"><input type="submit" name="submit" id="submitBtn" value="Submit Product Tests" /></td>
+        <td valign="top" align="left"></td>
+        <td valign="top" align="left"></td>
+        <td align="left"></td>
+    </tr>   
+</table>
+
+</form>

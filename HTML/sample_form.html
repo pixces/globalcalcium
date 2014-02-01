@@ -1,0 +1,81 @@
+<style>
+	#sampleForm{
+		margin: 20px;
+	}
+	.text,textarea{
+		width: 250px;
+		padding:5px;
+	}
+	
+	#message{
+		margin-left:20px;
+	}
+	.error{
+		color:#FF0000;
+		font-weight:bold;
+	}
+	.success{
+		color:#006600;
+	}
+	
+</style>
+<script>
+$(function(){
+	$("#message").hide();
+	$("#sampleForm").submit(function(){
+		var error = "";
+		if (!$("#name").val()){ error += "- Enter name\n"; }
+		if (!$("#organisation").val()){ error += "- Enter Organisation\n"; }
+		if (!$("#email").val()){ error += "- Enter emails\n"; }
+		if (!$("#address").val()){ error += "- Enter address\n"; }
+		if (!$("#phone").val()){ error += "- Enter Phone\n"; }
+
+		if (error){
+			alert("Check following errors:\n" + error);
+			return false;
+		}		
+	});
+
+});
+</script>
+<div id="contentWrapper">
+	<h1 class="bg_general">Sample Form</h1>
+	<p>Enter details in the form below to request a sample.</p>
+    <div id="message" class="success">Please Add details</div>
+    <form name="sampleForm" id="sampleForm" method="post">
+    <table border="0" cellspacing="0" cellpadding="5" width="100%">
+      <tr>
+        <td>Name</td>
+        <td><input name="name" id="name" type="text" class="text" /></td>
+      </tr>
+      <tr>
+        <td>Organization</td>
+        <td><input name="organisation" id="organisation" type="text" class="text" /></td>
+      </tr>      
+      <tr>
+        <td>Email Address</td>
+        <td><input name="email" id="email" type="text" class="text" /></td>
+      </tr>
+      <tr>
+        <td>Postal Address</td>
+        <td><textarea name="address" id="address" rows="5"></textarea></td>
+      </tr>          
+      <tr>
+        <td>Phone No.</td>
+        <td><input name="phone" id="phone" type="text" class="text" /></td>
+      </tr> 
+      <tr>
+        <td>Fax No.</td>
+        <td><input name="fax" id="fax" type="text" class="text" /></td>
+      </tr>    
+      <tr>
+        <td width="150">Tell us details of sample requried:</td>
+        <td><textarea name="details" id="details" rows="8"></textarea></td>
+      </tr> 
+      <tr>
+        <td width="150"></td>
+        <td><input type="submit" id="btnSubmit" name="submit" value="Request Sample" /></td>
+      </tr>                            
+    </table>
+	</form>
+</div>

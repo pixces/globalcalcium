@@ -1,0 +1,94 @@
+<div id="left_section">
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+{if $adminList}
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td class="tblHead">Admin Name</td>
+    <td class="tblHead">Admin Email</td>
+    <td class="tblHead">Admin Username</td>
+    <td class="tblHead">Admin Status</td>
+    <td class="tblHead" width="50"></td>        
+  </tr>
+{foreach from=$adminList item="admin"}  
+  <tr id="row_{$admin->id}">
+    <td class="tblList">{$admin->first_name}&nbsp;{$admin->last_name}</td>
+    <td class="tblList">{$admin->admin_email}</td>
+    <td class="tblList">{$admin->username}</td>
+    <td class="tblList">{$admin->admin_status}</td>        
+    <td class="tblList">
+    	<a href="?type=edit&id={$admin->id}" id="{$admin->id}"><img src="images/ico_edit.png" alt="Edit Banner" width="16" height="16" border="0" /></a>
+        <a href="?type=delete&id={$admin->id}" id="{$admin->id}" onClick="return deleteAdmin();"><img src="images/ico_delte.png" alt="Delete Banner" width="16" height="16" border="0" /></a>
+    </td>
+  </tr>
+{/foreach}  
+</table>
+{else}
+<p>No Sub Admin Found.</p>
+{/if}
+
+</div>
+<div id="right_section">
+<fieldset>
+<legend>{$formName} Sub-Admin</legend>
+<form method="post" action="" name="admin_form" id="admin_form">
+<input type="hidden" name="mm_action" id="mm_action" value="{$action}" />
+<input type="hidden" name="id" id="id" value="{$adminDet->id}" />
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><label>Admin Name</label></td>
+  </tr>
+  <tr>
+    <td><input name="fname" type="text" id="fname" maxlength="50" style="width:105px;" value="{$adminDet->first_name}"/>
+	
+    <input name="lname" type="text" id="lname" maxlength="100" style="width:120px;" value="{$adminDet->last_name}"/></td>
+  </tr>
+  <tr>
+    <td>
+		<label>Email Address</label><br />
+        <span class="frmInstruction">A valid email id. All correspondences will be redirected to this email address.</span>
+    </td>
+  </tr>
+  <tr>
+    <td><input name="email" type="text" style="width:230px;" id="email" value="{$adminDet->admin_email}"/></td>
+  </tr>
+  <tr>
+    <td>
+		<label>Admin Username</label><br />
+        <span class="frmInstruction">Password will randomly generated and sent to the be sent Email above.</span>
+    </td>
+  </tr>
+  <tr>
+    <td><input name="username" type="text" style="width:230px;" id="username" value="{$adminDet->username}"/></td>
+  </tr>
+  <tr>
+    <td><label>Admin Status</label><br /></td>
+  </tr>
+  <tr>
+    <td>
+	<input name="admin_status" id="admin_status" type="radio" value="1" checked="checked" />Activate 
+    <input name="admin_status" id="admin_status" type="radio" value="0" />Suspend
+    </td>
+  </tr>   
+  <tr>
+    <td>
+		<label>Set Admin Permissions</label><br />
+    </td>
+  </tr>
+  <tr>
+    <td>
+	    <input type="checkbox" name="permission[]" id="permission" value="man_link" {$man_link}/>Manage Site Links<br />
+        <input type="checkbox" name="permission[]" id="permission" value="man_content" {$man_content}/>Manage Site Content<br />
+        <input type="checkbox" name="permission[]" id="permission" value="man_portfolio" {$man_portfolio}/>Manage Portfolio<br />
+        <input type="checkbox" name="permission[]" id="permission" value="man_newsletter" {$man_newsletter}/>Manage Newsletters<br />    
+        <input type="checkbox" name="permission[]" id="permission" value="man_admin" {$man_admin}/>Manage Admin
+    </td>
+  </tr>    
+  <tr>
+    <td><input type="submit" name="button" id="button" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+</fieldset>
+</div>

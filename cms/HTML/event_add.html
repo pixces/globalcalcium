@@ -1,0 +1,127 @@
+<script language="javascript" type="text/javascript">
+	$(document).ready(function (){ldelim} CKEDITOR.replace('event_details'); {rdelim});
+</script>
+<ul class="formDetail">
+	<li>Use the form below to add the Products.</li>
+</ul>
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+<form id="addEvent" name="addEvent" method="post" enctype="multipart/form-data">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="eventId" value="{$eventDet->id}" />
+<table border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event Title:</label></div></td>
+    <td width="10" valign="top"><div align="left"></div></td>
+    <td valign="top"><div align="left">
+      <input name="event_title" id="page_title" type="text" value="{$eventDet->news_title}" style="width:250px;"  onblur="addSefUrl()"/>
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Title SEF:</label></div></td>
+    <td valign="top"><div align="left"></div></td>
+    <td valign="top"><div align="left">
+      <input name="sef_title" type="text" id="sef_title" maxlength="250" value="{$eventDet->news_title_sef}" style="width:250px;" />
+    </div></td>
+  </tr>
+  {if ($action) eq 'doEdit'}
+  <tr>
+    <td valign="top"><div align="left"><label>Uploaded Logo Image:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><img src="../upload/{$eventDet->news_image_logo}" width="150" border="1" /></div></td>
+  </tr>
+  {/if}
+  <tr>
+    <td valign="top"><div align="left"><label>Event Logo Image:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+      <input type="file" name="event_logo" id="eventLogo" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event Location:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+      <input type="text" name="event_location" id="eventLocation" value="{$eventDet->news_location}" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event Date:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+      <input type="text" name="event_date" id="eventDate" value="{$eventDet->news_date}" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event end Date:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+      <input type="text" name="event_end_date" id="eventEndDate" value="{$eventDet->news_valid_upto}" style="width:250px;" />
+    </div></td>
+  </tr>  
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event Summary Text:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+		<textarea name="event_summary" id="eventSummary" rows="3" style="width:250px;">{$eventDet->news_summary}</textarea>
+    </div></td>
+  </tr>
+{if ($action) eq 'doEdit'}
+{if ($eventDet->news_photo1) != ''}
+  <tr>
+    <td valign="top"><div align="left"><label>Uploaded Image:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><img src="../upload/{$eventDet->news_photo1}" width="150" border="1" /></div></td>
+  </tr>
+{/if}  
+{/if}
+  <tr>
+    <td valign="top"><div align="left"><label>Event Pictures:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><input type="file" name="event_image[]" id="eventImage01" style="width:250px;" /></div></td>
+  </tr>
+{if ($action) eq 'doEdit'}
+{if ($eventDet->news_photo2) != ''}
+  <tr>
+    <td valign="top"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><img src="../upload/{$eventDet->news_photo2}" width="150" border="1" /></div></td>
+  </tr>
+{/if}  
+{/if}
+  <tr>
+    <td valign="top"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><input type="file" name="event_image[]" id="eventImage01" style="width:250px;" /></div></td>
+  </tr>
+{if ($action) eq 'doEdit'}
+{if ($eventDet->news_photo3) != ''}
+  <tr>
+    <td valign="top"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><img src="../upload/{$eventDet->news_photo3}" width="150" border="1" /></div></td>
+  </tr>
+{/if}  
+{/if}  
+  <tr>
+    <td valign="top"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left"><input type="file" name="event_image[]" id="eventImage03" style="width:250px;" /></div></td>
+  </tr>  
+  <tr>
+    <td width="150" valign="top"><div align="left"><label>Event Details:</label></div></td>
+    <td>&nbsp;</td>
+    <td valign="top"><div align="left">
+      <textarea name="event_details" id="eventDetails">{if $eventDet->news_details}{$eventDet->news_details}{/if}</textarea>
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <input type="submit" name="submit" id="submit" value="{$formName} Events" />
+    </div></td>
+  </tr>
+</table>
+</form>

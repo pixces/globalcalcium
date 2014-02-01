@@ -1,0 +1,85 @@
+<script language="javascript" type="text/javascript">
+	$(document).ready(function (){ldelim} CKEDITOR.replace('product_details'); {rdelim});
+</script>
+<ul class="formDetail">
+	<li>Use the form below to add the Products.</li>
+</ul>
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+<form id="addContent" name="addContent" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="productId" value="{$productDet->id}" />
+<table border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product Category:</div></label></td>
+    <td width="10" valign="top"><div align="left"></div></td>
+    <td valign="top">
+        <div align="left">
+          <select name="productList" class="frm" id="productList" style="width:256px;" {$disable} >
+            <option value="0">-- Select Category --</option>{html_options options=$ProductGroupList selected=$productDet->parent_id}</select>
+        </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product Name:</div></label></td>
+    <td valign="top"><div align="left"></div></td>
+    <td valign="top">
+        <div align="left">
+          <input name="product_name" type="text" id="page_title" value="{$productDet->name}" maxlength="250" style="width:250px;"  onblur="addSefUrl()"/>
+      </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">SEF Name:</div></label></td>
+    <td valign="top"><div align="left"></div></td>
+    <td valign="top">
+      
+        <div align="left">
+          <input name="sef_title" type="text" id="sef_title" maxlength="250" value="{$productDet->sef_name}" style="width:250px;" />
+      </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product Formula:</div></label></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <input name="product_formula" type="text" id="product_formula" maxlength="250" value="{$productDet->formula}" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product Weight:</div></label></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <input name="product_weight" type="text" id="product_weight" value="{$productDet->weight}" maxlength="250" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product CSA No.:</div></label></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <input name="product_cas_no" type="text" id="product_cas_no" value="{$productDet->cas_number}" maxlength="250" style="width:250px;" />
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><label><div align="right">Product Group:</div></label></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <select name="product_group[]" multiple="multiple" class="frm" style="width:256px;" size="4">
+        <option value="">-- Select Groups --</option>{html_options options=$product_groups selected=$groups}    
+      </select>
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><div align="left"><label><div align="right">Product Tests:</div></label></div></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <textarea name="product_details" id="product_details">{if $productDet->details}{$productDet->details}{/if}</textarea>
+    </div></td>
+  </tr>
+  <tr>
+    <td width="150"><div align="left"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="left">
+      <input type="submit" name="submit" id="submit" value="{$formName} Products" onclick="return validateProductForm();"/>
+    </div></td>
+  </tr>
+</table>
+</form>

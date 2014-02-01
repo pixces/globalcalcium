@@ -1,0 +1,454 @@
+@charset "utf-8";
+body  {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	background-color:#e5ecf3;
+	margin: 0; 
+	padding: 0;
+	text-align: center; 
+	color: #000000;
+	font-size:12px;
+}
+
+#mainWrapper{
+	width:1000px;
+	margin:0 auto 0 auto;
+	padding:0;
+	}
+
+.topborder{
+	background:url(images/top_border.jpg) repeat-x top;
+}
+
+#headerWrapper{
+	background:url(images/tvs_header.png) top left no-repeat;
+	height:60px;
+	padding:5px;
+	margin-top:0px;	
+	text-align:left;
+}
+
+.left{
+	float: left;
+	margin-right:5px;
+}
+
+.right{
+	float:right; 
+	margin-left:5px; 
+	padding-right:10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#FFF;
+	padding-top: 35px;
+}
+
+.right a{
+	color: #999;
+	text-decoration:none;
+}
+
+.right a:hover{
+	color: #83CEFC;
+	text-decoration:underline;
+}
+
+#headerWrapper h1{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:18pt;
+	font-weight:normal;
+	color:#004080;
+	font-style:italic;
+	padding:0px 0px 0px 15px; 
+	}	 
+
+.mainTopBar{
+	background:url(images/main_top_bar.png) top left no-repeat;
+	height:11px;
+}
+
+.mainBottomBar{
+	background:url(images/main_bottom_bar.png) bottom left no-repeat;
+	height:11px;
+	margin-bottom:10px;
+
+}
+#bodyWrapper{
+	font-size:11px;
+	height:auto;
+	padding:5px;
+	background-color:#FFF;	
+	
+}	
+
+#mainContent{
+	margin: 15px;
+}
+
+#footerWrapper{
+	background-color:#FFFFFF;
+	padding:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#666;
+}	
+
+
+/***** misc html elemets *****/
+
+/***** the login page ********/
+.loginarea
+{
+	background-image:url(images/login_bg.jpg); 
+	height:224px; 
+	width:436px; 
+	background-repeat:no-repeat; 
+	margin-top:50px;
+	margin-bottom:50px;	
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.loginTitle{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12pt;
+	font-weight:bold;
+	padding-bottom:10px;
+	text-align:left;
+	padding-left:40px;
+	color: #408080;
+}
+
+/******* the frame page **********/
+#mainBodyWrapper{
+	height: auto;
+}
+
+#left_section{
+	width:600px;
+	float: left;
+	text-align:left;
+	margin-right:10px;
+	padding:5px;
+}
+
+#right_section{
+	width:300px;
+	text-align:left;
+	padding:5px;
+	float:right;
+}
+
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+#sectionTitle{
+	text-align: left;
+	padding-left:10px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:13pt;
+	font-weight:bold;
+	color:#1b5790;
+}
+
+/********* site navigation ***********/
+#navigation{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align: left;
+	padding-bottom:10px;
+	border-bottom:1px solid #CCC;
+	margin-bottom: 15px;
+}
+
+#navigation a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background:url(images/link_btn_bg.png);
+	text-align:center;
+	width: 100px;
+	height:32px;
+	line-height: 32px;
+	display:block;
+	float:left;
+	margin-right:5px;
+	text-decoration:none;
+	color: #666;
+	font-weight:bold;
+}
+
+#navigation a:hover{
+	background:url(images/link_btn_bg.png);
+	color:#999;
+}
+
+/**** all design elements *****/
+
+.frm{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#333;
+	width: 200px;
+	border: 1px solid #999999;
+	}
+
+label{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#666666;
+	font-weight:bold;
+}
+
+legend{
+	padding:5px;
+	background:#999;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+
+h4{
+	margin: 0;
+	color:#CC0000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12pt;
+	padding-bottom:5px;
+	border-bottom:1px solid #C00;
+	margin-bottom: 5px;
+}
+
+#form{
+	margin-top:10px;
+	margin-bottom: 10px;
+
+}
+
+
+#searchForm{
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:5px;
+	background:#FFFFCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #FF9900;
+}
+
+#searchForm input,#searchForm select{
+	width: 100px;
+}
+
+.frmInstruction{
+	font-size:10px;
+	color:#999999;
+	font-style:italic;
+}
+
+.formDetail{
+	font-size:11px;
+	font-weight:bold;
+	padding-bottom:10px;
+	color:#666666;
+	text-align:left;
+}
+
+.mandatory {
+	color: #FF0000;
+	font-size:1.25em;
+	}
+	
+.order_Details_Wrapper {
+	background: #F9FCED;
+	display:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#999;
+	padding:10px;
+}
+
+.sub_tdHeader{
+	font-weight:bold;
+	border-bottom:1px solid #666;
+}
+
+.sub_tdList{
+	font-weight:normal;
+	border-bottom:1px dotted #999;
+}
+	
+.inputDefault{
+	font-size:11px;
+	color:#999;
+}	
+	
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+
+#footer p{
+	color: #999;
+	font-size: 12px;
+	height:50px;
+	text-align: center;
+}
+
+
+#contentData{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+.tblHead {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666C31;
+	background-color: #E9ECD5;
+	padding:5px;
+	border-bottom: 1px solid #B3BC6B;
+	border-right: 1px solid #FFF;
+}
+
+.tblList{
+	border-bottom: 1px dotted #B3BC6B;
+	color:#333333;
+	font-size:11px;
+	padding-top: 5px;
+	padding-bottom:5px;
+}
+
+
+.errorBox{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color:#FF0000;
+	text-align:left;
+	width:500px;
+	margin: auto;
+	padding:5px;
+	padding-left:30px;
+	border: 1px solid #FF0000;
+	background-color: #FFEAEA;
+	background-image: url(images/ico_warning.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	margin-bottom:10px;
+}
+
+
+.messageBox{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color:#006600;
+	text-align:left;
+	width:500px;
+	padding:5px;
+	background-color:#E1F9D0;
+	background-image: url(images/ico_message.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	border: 1px solid #006600;
+	margin:auto;
+	margin-bottom:10px;		
+	
+}
+
+
+/**
+* Pop up window style for password change
+*/
+#backgroundPopup{
+	display:none;
+	position:fixed;
+	position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	border:1px solid #cecece;
+	z-index:1;
+}
+
+#popupContact{  
+	display:none;  
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6*/  
+	height:150px;  
+	width:315px;  
+	background:#FFFFFF;  
+	border:2px solid #cecece;  
+	z-index:2;  
+	padding:12px;  
+	font-size:13px;  
+}  
+#popupContact h1{  
+	text-align:left;  
+	color:#6FA5FD;  
+	font-size:22px;  
+	font-weight:700;  
+	border-bottom:1px dotted #D3D3D3;  
+	padding-bottom:2px;  
+	margin-bottom:20px;  
+}  
+#popupContactClose{  
+	font-size:14px;  
+	line-height:14px;  
+	right:6px;  
+	top:4px;  
+	position:absolute;  
+	color:#6fa5fd;  
+	font-weight:700;  
+	display:block;  
+}  
+/* Preview of the image on tooltip */
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+/* star for bookmarks */
+.unmarked{
+    background-image: url("images/star.png");
+    background-position: center bottom;
+    display: block;
+    height: 16px;
+    margin-left: 4px;
+    width: 16px;
+	text-decoration:none;
+}
+
+a.unmarked:hover{
+    background-image: url("images/star.png");
+    background-position: center top;
+}
+
+.marked{
+    background-image: url("images/star.png");
+    background-position: center top;
+    display: block;
+    height: 16px;
+    margin-left: 4px;
+    width: 16px;
+	text-decoration:none;
+}
+
+a.marked:hover{
+    background-image: url("images/star.png");
+    background-position: center bottom;
+}

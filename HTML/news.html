@@ -1,0 +1,41 @@
+<div id="contentWrapper">
+	<?php if ($section == 'list') { ?>
+        <h1 class="bg_general">News & Trade Events</h1>
+        <?php if ($currentEvents) { ?>
+        <h3>Current / Future Trade Events</h3>
+        <?php foreach($currentEvents as $event){ ?>
+        <div class="event">
+            <div class="logo"><img src="upload/<?php echo $event->news_image_logo; ?>" /></div>
+            <div class="title"><a href="news/<?php echo $event->news_title_sef; ?>"><?php echo $event->news_title; ?></a></div>
+            <div class="details"><?php echo $event->news_location; ?> &bull; <?php echo $event->news_date; ?></div>
+        </div>
+        <?php } } ?>
+        <?php if ($pastEvents) {  ?>
+        <h3>Past Trade Events</h3>
+            <?php foreach($pastEvents as $event){ ?>
+        <div class="event">
+            <div class="logo"><img src="upload/<?php echo $event->news_image_logo; ?>" /></div>
+            <div class="title"><a href="news/<?php echo $event->news_title_sef; ?>"><?php echo $event->news_title; ?></a></div>
+            <div class="details"><?php echo $event->news_location; ?> &bull; <?php echo $event->news_date; ?></div>
+        </div>
+        <?php } } ?>
+   <?php } else if ($section == 'detail') { ?>
+   		<h1 class="bg_general">EVENT: <?php echo $event->news_title; ?></h1>
+        <p class="event_title"><?php echo $event->news_title;?></p>
+        <?php if ($event_photo) { ?>
+        <div class="event_photo">
+        	<?php foreach($event_photo as $photo) { ?>
+        	<img src="upload/<?php echo $photo; ?>" />
+            <?php } ?>
+        </div><br style="clear:right" />    
+        <?php } ?>
+        <div class="event_basic">
+        	<div><img src="upload/<?php echo $event->news_image_logo; ?>" /></div>
+            <div><b>Location :</b> <?php echo $event->news_location; ?></div>
+            <div><b>Date :</b> <?php echo $event->news_date; ?></div>
+        </div>
+        <div style="text-align:justify">
+        	<?php echo $event_details; ?>
+        </div>
+   <?php } ?>     
+</div>

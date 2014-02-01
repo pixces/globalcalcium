@@ -1,0 +1,50 @@
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+
+<div id="list">
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="tblHead"><div align="left">Id</div></td>
+    <td class="tblHead" width ="150"><div align="left">Name</div></td>
+	<td class="tblHead" width="200"><div align="left">Email Address</div></td>
+	<td class="tblHead"><div align="left">Service</div></td>
+	<td class="tblHead"><div align="left">Date</div></td>
+	<td class="tblHead"><div align="left">Status</div></td>
+  </tr>
+  
+  <tr>
+  
+{foreach from=$quoteList item="quote"}
+	<td class="tblList"><div align="left"><a href="javascript:void(0)" onclick="toggleMe({$quote->cms_quote_id})">Id #{$quote->cms_quote_id}</a></div></td>
+	<td class="tblList"><div align="left"><b>{$quote->cms_quote_name}</b></div></td>
+	<td class="tblList"><div align="left">{$quote->cms_quote_email}</div></td>
+	<td class="tblList"><div align="left"><b>{$quote->cms_quote_service}</b></div></td>
+	<td class="tblList"><div align="left">{$quote->cms_quote_date|date_format:"%d-%b-%Y"}</div></td>
+	<td class="tblList">
+    	<div align="left"><b>{if $quote->cms_quote_status == 1} Replied
+    	  {elseif $quote->cms_quote_status == 2} Failed
+		  {else} Pending
+    	  {/if} </div></b></td>
+    <td class="tblList"></td>
+  </tr>
+  <tr> <!--bgcolor="#EFFBC6"-->
+    <td colspan="8">
+      <div id="row_{$quote->cms_quote_id}" style="display:none;background-color:#EFFBC6">
+	 	
+		<div id="quote_message" style="text-align:left; padding:5px;">
+			 {$quote->cms_quote_query}<a href="javascript:void(0)" onclick="show_form({$quote->cms_quote_id})" >...reply</a>	
+		</div>
+		<form name="replyForm" id="replyForm" method="post" action="reply.php">
+		<div id="form_{$quote->cms_quote_id}" style="text-align:left; display:none" >
+		<input type="hidden" name="quote_id" id = "quote_id" value="{$quote->cms_quote_id}"/>
+			<textarea name="replyMessage" id="replyMessage" cols="50" rows="5"></textarea>
+			<input type="submit" value="Send reply" name="submit" id="submit" />
+			</form>
+		</div>
+	  
+	  </div>
+	</td>
+  </tr>
+ 	{/foreach}
+ </table>

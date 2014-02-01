@@ -1,0 +1,42 @@
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="left_section">
+<form method="post" action="" id="user_email_list" name="user_email_list">
+ <table width="850" border="0" cellspacing="0" cellpadding="4">
+ <tr>
+ <td class="tblHead">From</td>
+  <td class="tblHead">Subject</td>
+  <td class="tblHead">Date Created</td>
+  <td class="tblHead">Status</td>
+  <td class="tblHead">Last Sent</td>
+  <td class="tblHead"></td>
+ </tr>
+{foreach item=nlList from=$nlList}
+ <td class="tblList">{$nlList->from_name}:{$nlList->from_addr}</td>
+ <td class="tblList">{$nlList->subject}</td>
+ <td class="tblList">{$nlList->date_created|date_format:"%d-%b-%Y"}</td>
+ <td class="tblList">
+ 		{if ($nlList->nl_status) eq 1} Send 
+		{else} Unsend
+		{/if}			
+ </td>
+ <td class="tblList">{if ($nlList->nl_sent) eq 0} --
+		{else} {$nlList->nl_sent|date_format:"%d-%b-%Y"} 
+		{/if}</td>
+ <td class="tblList">
+ <div align="right">
+ 	<a href="nl_send.php?msg_id={$nlList->nl_id}" id="{$nlList->nl_id}">
+	   	<img id="{$nlList->nl_id}" src="images/mail.gif" alt="edit" border="0" title="Send" />
+    </a>
+ 	<a href="?type=edit&id={$nlList->nl_id}" id="{$nlList->nl_id}">
+	   	<img id="{$nlList->nl_id}" src="images/ico_edit.png" alt="edit" border="0" title="Edit" />
+    </a>
+    <a href="?type=delete&id={$nlList->nl_id}" id="{$nlList->nl_id}" onClick="return deleteN();">
+    	<img id="{$nlList->nl_id}" src="images/ico_delte.png"  alt="delete" title="Delete" border="0" />
+    </a>
+</div></td></tr>
+
+{/foreach}
+
+ </table>
+<p class="button" style="float:right; margin-top:20px;"><a href="?type=add">Add Newsletters</a></p>

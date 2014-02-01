@@ -1,0 +1,73 @@
+<div id="left_section">
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+
+{if $section_list}
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td class="tblHead" width="200">Section Title</td>
+	<td class="tblHead">Image URL</td>
+	<td class="tblHead" width="125">Link URL</td>
+    <td class="tblHead" width="50">&nbsp;</td>
+  </tr>
+{foreach from=$section_list item="sec"}
+  <tr id="row_{$sec.id}">
+    <td class="tblList"><strong>{$sec.name}</strong></td>
+    <td class="tblList">{$sec.image}</td>
+    <td class="tblList">{$sec.href}</td>
+    <td class="tblList">
+    	<a href="javascript:void(0)" id="{$sec.id}" onClick="editIndexSection(this.id)"><img src="images/ico_edit.png" alt="Edit Banner" width="16" height="16" border="0" /></a>
+        <a href="javascript:void(0)" id="{$sec.id}" onClick="deleteIndexSection(this.id)"><img src="images/ico_delte.png" alt="Delete Banner" width="16" height="16" border="0" /></a>
+    </td>
+  </tr>
+ {if $sec.sub} 
+  <tr>
+    <td colspan="5" style="padding-left:25px">
+    	<table border="0" cellspacing="0" cellpadding="2" align="left" width="100%">
+          {foreach from=$sec.sub item="sub"}
+          <tr bgcolor="{cycle values="#f4fae2,#FFF"}" id="row_{$sub.id}">
+            <td class="tblList">
+            	<strong>{$sub.name}</strong><br />{$sub.image} / {$sub.href}
+			</td>
+            <td class="tblList" width="50">
+                <a href="javascript:void(0)" id="{$sub.id}" onClick="editIndexSection(this.id)"><img src="images/ico_edit.png" alt="Edit Banner" width="16" height="16" border="0" /></a>
+                <a href="javascript:void(0)" id="{$sub.id}" onClick="deleteIndexSection(this.id)"><img src="images/ico_delte.png" alt="Delete Banner" width="16" height="16" border="0" /></a>
+            </td>
+          </tr>
+         {/foreach}
+        </table>
+    </td>
+    </tr>
+{/if}
+{/foreach} 
+</table>
+
+{else}
+
+<p>No Section found.</p>
+
+{/if}
+
+</div>
+<div id="right_section">
+<fieldset>
+<legend>Add/Update Section</legend>
+<form method="post" action="home_ajax.php?opt=1" name="home_form" id="home_form">
+<input type="hidden" name="mm_action" id="mm_action" value="doSection" />
+<input type="hidden" name="sec_id" id="sec_id" value="" />
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr><td><label>Section Name:</label></td></tr>
+  <tr><td><input type="text" name="sec_name" id="sec_name" style="width:250px;" /></td></tr>
+  <tr><td><label>Section Content:</label></td></tr>
+  <tr><td><textarea name="sec_data" id="sec_data" cols="" rows="7" style="width:250px;"></textarea></td></tr>
+  <tr><td><label>Group this under:</label></td></tr>
+  <tr><td id="combo_id">{$section_combo}</td></tr>
+  <tr><td><label>Image URL:</label></td></tr>
+  <tr><td><input type="text" name="sec_image" id="sec_image" style="width:250px;" /></td></tr>
+  <tr><td><label>Link URL:</label></td></tr>
+  <tr><td><input type="text" name="sec_URL" id="sec_URL" style="width:250px;" /></td></tr>
+  <tr><td><input type="submit" name="button" id="button" value="Submit" /></td></tr>
+</table>
+</form>
+</fieldset>
+</div>

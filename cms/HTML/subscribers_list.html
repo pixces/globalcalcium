@@ -1,0 +1,53 @@
+
+
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="list_nav">
+{if $subxList}
+<div align="left" style="margin-bottom:10px;">
+<img src="images/ico_subscribe.png" alt="Un Subscribe" width="16" height="16" border="0" />= Users who are currently Un-subscribed from the list. Click on the Icon to subscribe them<br>
+<img src="images/ico_un_subscribe.png" alt="Un Subscribe" width="16" height="16" border="0" />= Users who are currently Subscribed to the list. Click on the Icon to un-subscribe them.
+</div>
+
+<form method="post" action="" id="user_email_list" name="user_email_list">
+
+ <table border="0" cellspacing="0" cellpadding="4" width="600">
+ <tr>
+ <td width="30" class="tblHead"><input name="checkAll" type="checkbox" id="checkAll" style="width:25px;" value="1" onClick="return selectAll();" /></td>
+ <td class="tblHead">Email Address</td>
+ <td colspan="2" class="tblHead"><div align="right" style="font-weight:normal">All Selected
+ <a href="javascript:void(0)" id="subscribe" onclick="subscribeAll()">Subscribe</a> |
+ <a href="javascript:void(0)" id="unSubscribe" onclick="unSubscribeAll()">Un-Subscribe</a> |
+ <a href="javascript:void(0)" id="delete" onclick="deleteAll()">Delete</a></div></td>
+ </tr>
+{foreach item=subxList from=$subxList}
+ <tr id="row_{$subxList->subscriber_id}" align="left">
+ <td width="30" class="tblList"><input name="check[]" type="checkbox" id="check" style="width:25px;" value="{$subxList->subscriber_id}" /></td>
+ <td class="tblList">{$subxList->email}</td>
+ <td class="tblList"><div align="center"></div></td>
+ <td class="tblList">
+ <div align="right">
+ 	{if ($subxList->status) eq 1}
+		<a href="?type=unSubx&id={$subxList->subscriber_id}"><img src="images/ico_un_subscribe.png" alt="Un Subscribe" width="16" height="16" border="0" /></a>
+	{else}
+		<a href="?type=subx&id={$subxList->subscriber_id}"><img src="images/ico_subscribe.png" alt="Subscribe" width="16" height="16" border="0" /></a>
+	{/if}
+
+ <a href="?type=delSubx&id={$subxList->subscriber_id}" onClick="return deleteN();"><img src="images/ico_delte.png" alt="Delete" width="16" height="16" border="0" /></a></div></td></tr>
+{/foreach}
+ <tr align="left">
+   <td class="tblHead">&nbsp;</td>
+   <td class="tblHead">&nbsp;</td>
+   <td class="tblHead"colspan="2" >
+   <div align="right">
+   All Selected<a href="javascript:void(0)" id="subscribe" onclick="subscribeAll()">Subscribe</a> |
+ <a href="javascript:void(0)" id="unSubscribe" onclick="unSubscribeAll()">Un-Subscribe</a> |
+ <a href="javascript:void(0)" id="delete" onclick="deleteAll()">Delete</a>
+ 	</div>
+   </td>
+ </tr>
+ </table>
+</form> 
+{/if}
+<p class="button" style="float:center; margin-top:20px;"><a href="newsletter.php">Manage Newsletters</a></p>
+</div>

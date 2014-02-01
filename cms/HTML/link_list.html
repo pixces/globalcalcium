@@ -1,0 +1,100 @@
+<div id="link_list" style="float:left; width:690px; margin-right:20px;">
+
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="list_nav">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="left">Found: <b>{$total_category} Links </b></div></td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+</div>
+{if $linkList}
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="tblHead"><div align="left">Link Name</div></td>
+
+    <td class="tblHead"></td>
+  </tr>
+  <tr>
+    {foreach from=$linkList item="link"}
+	<td class="tblList" align="left"><b>
+	<!--	{if ($link.type_flag) == 0}  {else} - Secondary - {/if} -->
+		{if ($link.parent_flag == 0)}
+			
+			{$link.link_name}	<!-- Displaying the main links -->
+		{else}
+			-- {$link.link_name}	<!-- Displaying the sub links -->
+		{/if}
+	</b></td>
+    <td class="tblList" align="left">
+        <a href="?type=edit&link_id={$link.linkId}" id="{$link.linkId}"><img id="{$link.linkId}" src="images/ico_edit.png" alt="edit" border="0" /></a>
+        <a href="?type=delete&link_id={$link.linkId}" id="{$link.linkId}" onClick="return deletelink('{$link.link_name}');"><img id="{$link.linkId}" src="images/ico_delte.png"  alt="delete" border="0" /></a>
+     </td>
+  </tr>
+  	{/foreach}
+</table>
+{/if}
+</div>
+
+
+<div id="link_form">
+<fieldset>
+<legend>{$formName}&nbsp;Link</legend>
+<p class="formDetail">Use the form below to add/edit link details. All fields are mandatory to be filled.</p>
+<div id="form">
+<form name="add" method="post" action="">
+<input type="hidden" name="mm_action" value="{$action}" />
+<input type="hidden" name="linkId" value="{$linkdetail->link_id}" />
+  <table cellpadding="2" cellspacing="0">
+    <tr>
+      <td valign="top"><div align="left"><label>Link Name:</label></div></td>	  
+      </tr>
+    <tr>
+      <td valign="top">
+          <div align="left">
+            <input type="text" name="linkName" id="linkName" value="{$linkDet->link_name}" class="frm" />
+          </div></td>
+      </tr>
+    <tr>
+      <td valign="top"><div align="left"><label>Parent Link:</label></div></td>
+      </tr>
+    <tr>
+      <td valign="top"><div align="left">
+        <select name="parentLink" id="parentLink" class="frm" onChange="return showOrHide();" />
+          <option value="0">-- Main Link --</option>
+			{html_options options=$pLinks selected=$linkDet->link_parent}
+        </select>
+      </div></td>
+      </tr>
+    <tr>
+      <td valign="top"><div align="left"><label>Link Type:</label></div></td>
+      </tr>
+    <tr>
+      <td valign="top"><div align="left">
+        <input name="rd_linktype" type="radio" id ="rd_primary" value="0" {$linkTypeP} style="width:15px;" />
+        Primary
+        <input name="rd_linktype" type="radio" id ="rd_secondary" value="1" {$linkTypeS} style="width:15px;" />
+        Secondary</div></td>
+      </tr>
+	  <tr>
+      <td valign="top"><div align="left"><label>Order:</label></div></td>	  
+      </tr>
+	<tr>
+      <td valign="top"><div align="left">
+        <input type="text" name="orderLink" id="orderLink" value="{$linkDet->link_order}" size="4" maxlength="2" {$disabled}>
+      </tr>
+    <tr>
+      <td valign="top">
+        <div align="center">
+          <input type="submit" name="submit" value="{$formName}&nbsp;Link" style="width:100px;" onClick="return validateForm();" />
+          </div>
+	  </td>
+      </tr>
+  </table>
+</form>
+</div>
+</fieldset>
+</div>
+<div class="clearfloat"></div>

@@ -1,0 +1,39 @@
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="list_nav">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="left">Found: <b>{$content_count} Pages </b></div></td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+</div>
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="tblHead" width="125"><div align="left">Page Title</div></td>
+    <td class="tblHead" width="200"><div align="left">Page Content</div></td>
+	<td class="tblHead" width="120"><div align="left">page URL</div></td>
+	<td class="tblHead" width="50"><div align="left"></div></td>
+  </tr>
+  <tr>
+    {foreach from=$contentList item="content"}
+	
+	<td class="tblList" align="left"><b>{$content.content_title}</b></td>
+	<td class="tblList" align="left"><b>{$content.content_file}</b></td>
+	<td class="tblList" align="left"><b>{$HOST}{$content.link_name}</b></td>
+	<td class="tblList" align="left">
+	
+        <a href="?type=edit&id={$content.content_id}" id="{$content.content_id}">
+        	<img id="{$content.content_id}" src="images/ico_edit.png" alt="edit" title="Edit Content" border="0"/>
+        </a>
+		<a href="meta_tag.php?section=page&linkid={$content.content_link_id}" id="{$content.content_link_id}">
+        	<img id="{$content.content_id}" src="images/ico_meta.png" alt="tags" title="Manage Meta Information"  border="0" />
+        </a>
+        <a href="?type=delete&id={$content.content_id}" id="{$content.content_id}" onClick="return deleteContent();">
+        	<img id="{$content.content_id}" src="images/ico_delte.png"  alt="delete" title="Delete Content" border="0" />
+        </a>
+     </td>
+  </tr>
+  	{/foreach}
+</table>
+<p class="button" style="float:right; margin-top:20px;"><a href="?type=add">Add New Content</a></p>

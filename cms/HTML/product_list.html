@@ -1,0 +1,46 @@
+{if isset($error) } <div class="errorBox">{$error}</div> {/if}
+{if isset($message) } <div class="messageBox">{$message}</div> {/if}
+<div id="list_nav">
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="left">Found: <b>{$products_count} Products </b></div></td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+</div>
+<table width="100%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="tblHead"><div align="left">Product Name</div></td>
+    <td class="tblHead" width="200"><div align="left"></div></td>
+	<td class="tblHead" width="125"><div align="left">Latest</div></td>
+	<td class="tblHead" width="75"><div align="left"></div></td>
+  </tr>
+  <tr>
+    {foreach from=$productList item="product"}
+	<td class="tblList" align="left"><b>{$product.name}</b></td>
+	<td class="tblList" align="left"><b>{$product->sef_name}</b></td>
+	<td class="tblList" align="left"><b>
+    	{if $product.latest == 1}
+        	<a href="?type=status&change=unmark&id={$product.id}" class="marked">&nbsp;</a>
+        {else}
+        	<a href="?type=status&change=mark&id={$product.id}" class="unmarked">&nbsp;</a>
+        {/if}
+        </b></td>
+	<td class="tblList" align="left">
+        <a href="?type=edit&id={$product.id}" id="{$product.id}">
+        	<img id="{$product.id}" src="images/ico_edit.png" alt="edit" title="Edit product" border="0"/>
+        </a>
+        <a href="?type=tests&id={$product.id}" id="{$product.id}">
+        	<img id="{$product.id}" src="images/ico_layout_add.png" title="Add product Tests" alt="Add product Tests" border="0" />
+        </a> 
+		<!-- a href="meta_tag.php?section=products&linkid={$product.id}" id="{$product.id}">
+        	<img id="{$content.content_id}" src="images/ico_meta.png" alt="tags" title="Manage Meta Information"  border="0" />
+        </a -->               
+        <a href="?type=delete&id={$product.id}" id="{$product.id}" onClick="return deleteproduct();">
+        	<img id="{$product.id}" src="images/ico_delete.png" alt="delete" title="Delete product" border="0" />
+        </a>
+     </td>
+  </tr>
+  	{/foreach}
+</table>
+<p class="button" style="float:right; margin-top:20px;"><a href="?type=add">Add New Product</a></p>

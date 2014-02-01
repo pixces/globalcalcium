@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><?php echo $meta['page_title']; ?></title>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META name="description" content="<?php echo $meta['meta_description']; ?>">
+<META name="keywords" content="<?php echo $meta['meta_key']; ?>">
+<META name="robots" content="<?php echo $meta['meta_robots']; ?>">
+<META name="distribution" content="ALL">
+<META name="rating" content="general">
+<!--[if lt IE 7.] -->
+<?php echo $pngLinks ; ?>
+<!-- [endif]-->
+
+<!-- JavaScript //-->
+<?php echo $jsLinks; ?>
+<?php echo $cssLinks; ?>
+<base href="<?php echo SITE_ROOT; ?>">
+<!--[if IE 5]>
+<style type="text/css"> 
+/* place css box model fixes for IE 5* in this conditional comment */
+.twoColFixRtHdr #sidebar1 { width: 220px; }
+</style>
+<![endif]--><!--[if IE]>
+<style type="text/css"> 
+/* place css fixes for all versions of IE in this conditional comment */
+.twoColFixRtHdr #sidebar1 { padding-top: 30px; }
+.twoColFixRtHdr #mainContent { zoom: 1; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]-->
+
+<!-- google analytics code //-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-348570-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id="headerWrapper">
+	<div class="container">
+    	<?php require_once("header.html"); ?>
+    </div>
+</div>
+<div id="bodyWrapper">
+	<div class="container">
+    	<?php require_once("content_template.html"); ?>
+    </div>
+</div>
+<div id="footerWrapper">
+	<div class="container">
+    	<?php require_once("footer.html"); ?>       
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<div id="contentWrapper">
+	<h1 class="bg_general products_bg"><?php echo $title; ?></h1>
+    
+    <!-- latest products //-->
+    <?php if ($section == 'latest_products') { ?>
+    	<div class="page_content">
+        	<?php echo $latestPage->content; ?>
+        </div>
+        <h3 style="border-bottom:1px solid">Latest Products</h3> 
+        <?php foreach($latestProducts as $product) { ?>
+        	<p class="productName" style="margin-left:30px; font-size:12px;"><a href="products.php?id=<?php echo $product->id; ?>"><?php echo $product->name; ?></a></p>
+        <?php } ?>
+    <?php } ?>    
+    
+    <!-- all product section //-->
+    <?php if ($section =="all") { ?>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        var size = $("#data > div.productItem").size();
+        $("#data > div.productItem").each(function(index){
+            if (index >= size/2){
+                $(this).appendTo("#Column2");
+            }
+        });
+    });
+    </script>
+    
+    <!-- first column //-->
+    <div id="data" class="productList"style="width:320px; float:left; text-align:left; margin-right: 25px;">
+        <?php foreach($productList as $product){?>
+        <div class="productItem" style="margin-bottom:15px;">
+            <div class="product_main_bg" style="background-color:#d4e4ba; padding:5px; margin-bottom:5px;">
+                <a href="<?php echo $product['url']; ?>">
+                    <span class="productMain" style="font-size:1.1em; font-weight:bold; text-decoration:none; display:block"><?php echo $product['name']; ?></span>
+                </a>
+             </div>
+            <?php if ($product['sub']){ ?>
+            	<ul>
+	                <?php foreach($product['sub'] as $item) { ?> 
+                    	<li><a href="<?php echo $item['url']; ?>"><span class="productSub"><?php echo $item['name']; ?></span></a></li>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
+        </div>
+        <?php } ?>
+    </div>
+    <!-- second column //-->
+    <div class="productList" id="Column2" style="width:320px; float:left; text-align:left"></div><br style="clear:both" /> 	
+    <?php } ?>
+ 	
+   <!-- product details //-->
+   <?php if ($section =="details") { ?>
+    <div id="products">
+    <?php if ($prod_specification) { ?>
+        <div class="specification">
+            <table border="0" cellspacing="0" cellpadding="5">
+                <tr bgcolor="#74BF3B"><td style="color:#FFFFFF;">Product Name:</td><td><b><?php echo $productDet['name']; ?></b></td></tr>
+                <tr bgcolor="#74BF3B"><td style="color:#FFFFFF;">Product Formula:</td><td bgcolor="#c5f1a3"><b><?php echo $productDet['formula']; ?></b></td></tr>
+                <tr bgcolor="#74BF3B"><td style="color:#FFFFFF;">Molecular Weight:</td><td bgcolor="#e1ffca"><?php echo $productDet['weight']; ?></td></tr>
+                <tr bgcolor="#74BF3B"><td style="color:#FFFFFF;">CAS Number:</td><td bgcolor="#c5f1a3"><?php echo $productDet['cas_number']; ?></td></tr>
+            </table>
+        </div>
+    <?php } if ($prod_tests){ ?>
+        <div class="tests">
+            <table border="0" cellspacing="0" cellpadding="2" width="100%">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col" width="180">Tests</th>
+                <th scope="col">Specifications</th>
+                <th scope="col" width="75">Reference</th>
+              </tr>
+              <?php 
+              $c=0;
+              foreach($productDet['tests'] as $test) {  
+
+              	$color = ($c%2)? "#c5f1a3":"#e1ffca";
+              ?>
+              <tr bgcolor="<?php echo $color; ?>">
+                <td valign="top"><?php echo ++$c; ?></td>
+                <td valign="top"><?php echo nl2br($test['product_test']); ?></td>
+                <td valign="top"><?php echo nl2br($test['test_specification']); ?></td>
+                <td valign="top"><?php echo nl2br($test['test_reference']); ?></td>
+              </tr>
+              <?php } ?>                                                                                   
+            </table>
+        </div>
+    <?php } if ($prod_details) { ?>
+        <div id="details">
+            <p><?php echo $productDet['details']; ?></p>
+        </div>
+    <?php } if ($prod_list) { ?>
+        <div id="list">
+            <ul>
+                <?php if ($productList) {  foreach($productList as $list) { ?>
+                <li><a href="<?php echo $list['url']; ?>"><?php echo $list['name']; ?></a></li>
+                <?php } } ?>
+            </ul>
+        </div>
+    <?php } ?>
+    </div>    
+    <?php } ?>
+</div>

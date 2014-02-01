@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+/* START slideshow wrapper */
+#slideshow-wrapper {
+	/* float:left; */
+	width:675px;
+	height:150px;
+	margin:0 auto;
+}
+#slideshow-wrapper ul{
+	list-style:none;
+}
+#slideshow {
+    height:150px;
+    position:relative;	
+	width:675px;
+	margin:0;
+}
+#slideshow li {
+    height:150px;	
+    left:0;	
+    opacity:0.0;	
+    position:absolute;
+    top:0;
+    z-index:8;
+	list-style:none;
+}
+
+#slideshow li a{
+	/* color: #9dcd17; */
+	 color: #FFF; 
+}
+
+#slideshow li.active {
+    opacity:1.0;
+    z-index:10;
+}
+#slideshow li.last-active {
+    z-index:9;
+}
